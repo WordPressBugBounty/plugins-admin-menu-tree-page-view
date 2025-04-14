@@ -83,9 +83,9 @@ function amtpv_build_admin_page() {
                                     echo '<select name="amtpv_post_type" id="amtpv-post-type">
                                         <option value="0">Select a post type...</option>';
 
-                                        foreach ( $post_types  as $post_type ) {
-                                            echo '<option value="' . $post_type->name . '" ' . selected( $post_type->name, $selected_post_type, false ) . '>' . $post_type->labels->singular_name . '</option>';
-                                        }
+                                    foreach ( $post_types  as $post_type ) {
+                                        echo '<option value="' . $post_type->name . '" ' . selected( $post_type->name, $selected_post_type, false ) . '>' . $post_type->labels->singular_name . '</option>';
+                                    }
 
                                     echo '<select>';
                                 }
@@ -249,12 +249,12 @@ function admin_menu_tree_page_view_get_content( $args, $post_type = 'page' ) {
                     // Drag handle
                     $output .= '<span class="amtpv-draghandle"></span>';
 
-                    $output .= '<a href="' . $edit_link . '" data-post-id="' . $one_page->ID . '">' . $status_span;
+                    $output     .= '<a href="' . $edit_link . '" data-post-id="' . $one_page->ID . '">' . $status_span;
                         $output .= $title;
 
                         // Add the view link, hidden, used in popup
                         $permalink = get_permalink( $one_page->ID );
-                    $output .= '</a>';
+                    $output       .= '</a>';
 
                     // Popup edit div
                     $output .= '<div class="amtpv-editpopup">

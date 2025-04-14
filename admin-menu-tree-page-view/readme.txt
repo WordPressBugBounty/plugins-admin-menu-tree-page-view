@@ -3,9 +3,9 @@ Contributors: butterflymedia
 Donate link: https://www.buymeacoffee.com/wolffe
 Tags: admin, page, page tree, hierarchy, menu
 Requires at least: 4.9
-Tested up to: 6.6
+Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 2.8.6
+Stable tag: 2.8.7
 License: GNU General Public License v3 or later
 
 Get a tree view of all your pages directly in the admin menu. Search, add, edit, view, re-order – all is just one click away!
@@ -42,6 +42,10 @@ Now the tree with the pages will be visible in the admin menu to the left, in th
 3. Searching for a post type
 
 == Changelog ==
+
+= 2.8.7 =
+* UPDATE: Updated WordPress compatibility
+* UPDATE: Updated code (WPCS) to allow short array syntax
 
 = 2.8.6 =
 * UPDATE: Updated WordPress compatibility
