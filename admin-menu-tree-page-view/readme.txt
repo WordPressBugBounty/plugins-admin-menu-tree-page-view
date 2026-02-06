@@ -3,9 +3,9 @@ Contributors: butterflymedia
 Donate link: https://www.buymeacoffee.com/wolffe
 Tags: admin, page, page tree, hierarchy, menu
 Requires at least: 4.9
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 2.8.7
+Stable tag: 2.8.8
 License: GNU General Public License v3 or later
 
 Get a tree view of all your pages directly in the admin menu. Search, add, edit, view, re-order – all is just one click away!
@@ -16,7 +16,7 @@ The **Admin Menu Tree Page View** plugin adds a tree-view layout to all your pag
 
 You can also add posts, pages and custom post types directly in the tree and you can quickly find your pages by using the real-time search box.
 
-[Homepage](https://getbutterfly.com/wordpress-plugins/admin-menu-tree-page-view/) | [2.8 Refactor](https://getbutterfly.com/admin-menu-tree-page-view-2-8-refactoring-update/)
+[Homepage](https://getbutterfly.com/wordpress-plugins/)
 
 #### Top features
 * Change the order of your pages with drag-and-drop
@@ -42,6 +42,10 @@ Now the tree with the pages will be visible in the admin menu to the left, in th
 3. Searching for a post type
 
 == Changelog ==
+
+= 2.8.8 =
+* UPDATE: Updated WordPress compatibility
+* UPDATE: Updated readme.txt
 
 = 2.8.7 =
 * UPDATE: Updated WordPress compatibility
