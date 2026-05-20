@@ -1,9 +1,9 @@
-<?php
+﻿<?php
 /**
  * Plugin Name: Admin Menu Tree Page View
  * Plugin URI: https://getbutterfly.com/wordpress-plugins/admin-menu-tree-page-view/
  * Description: Get a tree view of all your pages directly in the admin menu. Search, edit, view and add pages - all with just one click away!
- * Version: 2.8.8
+ * Version: 2.8.9
  * Author: Ciprian Popescu
  * Author URI: https://getbutterfly.com/
  * License: GNU General Public License v3 or later
@@ -11,7 +11,7 @@
  *
  *
  * Copyright 2020-2025 Ciprian Popescu (email: getbutterfly@gmail.com)
- * Copyright 2010-2020 Pär Thernström (email: par.thernstrom@gmail.com)
+ * Copyright 2010-2020 PÃ¤r ThernstrÃ¶m (email: par.thernstrom@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ if ( ! is_admin() ) {
     return;
 }
 
-define( 'AMTPV_VERSION', '2.8.8' );
+define( 'AMTPV_VERSION', '2.8.9' );
 
 require 'includes/settings.php';
 
@@ -236,8 +236,6 @@ function admin_menu_tree_page_view_get_pages( $args ) {
 
         // add the view link, hidden, used in popup
         $permalink = get_permalink( $one_page->ID );
-        // $output .= "<span class='admin-menu-tree-page-view-view-link'>$permalink</span>";
-        // $output .= "<span class='admin-menu-tree-page-view-edit'></span>";
 
         // drag handle
         $output .= "<span class='amtpv-draghandle'></span>";
@@ -378,8 +376,6 @@ function admin_menu_tree_page_view_add_page() {
                 global $wpdb;
 
                 $ref_post = get_post( $ref_post_id );
-                // update menu_order of all pages below our page
-                //$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET menu_order = menu_order+2 WHERE post_parent = %d AND menu_order >= %d AND id <> %d ", $ref_post->post_parent, $ref_post->menu_order, $ref_post->ID ) );
 
                 $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET menu_order = menu_order+2 WHERE post_type = %s AND post_parent = %d AND menu_order >= %d AND id <> %d ", $ref_post->post_type, $ref_post->post_parent, $ref_post->menu_order, $ref_post->ID ) );
 
@@ -420,8 +416,6 @@ function admin_menu_tree_page_view_add_page() {
 
                 $ref_post = get_post( $ref_post_id );
 
-                // update menu_order, so our new post is the only one with order 0
-                //$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET menu_order = menu_order+1 WHERE post_parent = %d", $ref_post->ID) );
 
                 $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET menu_order = menu_order+1 WHERE post_type = %s AND post_parent = %d", $ref_post->post_type, $ref_post->ID ) );
 
@@ -444,8 +438,6 @@ function admin_menu_tree_page_view_add_page() {
         $loopNum     = 0;
         foreach ( $page_titles as $one_page_title ) {
             $newPostID = admin_menu_tree_page_view_add_page_inside( $ref_post_id, $one_page_title, $post_type, $post_status );
-            $new_post  = get_post( $newPostID );
-            // $ref_post_id = $new_post->ID;
             if ( $loopNum == 0 ) {
                 $post_id_to_return = $newPostID;
             }
@@ -497,7 +489,7 @@ function admin_menu_tree_page_view_move_page() {
     the node that was moved,
     the reference node in the move,
     the new position relative to the reference node (one of "before", "after" or "inside"),
-        inside = man placerar den under en sida som inte har några barn?
+        inside = man placerar den under en sida som inte har nÃ¥gra barn?
     */
 
     global $wpdb;
@@ -538,16 +530,11 @@ function admin_menu_tree_page_view_move_page() {
         } elseif ( 'up' == $type ) {
 
             // post_node is placed before ref_post_node
-            // update menu_order of all pages with a menu order more than or equal ref_node_post and with the same parent as ref_node_post
-            // we do this so there will be room for our page if it's the first page
-            // so: no move of individial posts yet
-            //$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET menu_order = menu_order+1 WHERE post_parent = %d", $post_ref_node->post_parent ) );
 
             $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET menu_order = menu_order+1 WHERE post_type = %s AND post_parent = %d", $post_ref_node->post_type, $post_ref_node->post_parent ) );
 
             // update menu order with +1 for all pages below ref_node, this should fix the problem with "unmovable" pages because of
             // multiple pages with the same menu order (...which is not the fault of this plugin!)
-            //$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET menu_order = menu_order+1 WHERE menu_order >= %d", $post_ref_node->menu_order+1) );
 
             $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET menu_order = menu_order+1 WHERE post_type = %s AND menu_order >= %d", $post_ref_node->post_type, $post_ref_node->menu_order + 1 ) );
 
