@@ -18,6 +18,9 @@
     <!-- Check up to 8 files simultaneously -->
     <arg name="parallel" value="8" />
 
+    <!-- Reject UTF-8 BOM in PHP files (breaks headers and REST/AJAX JSON site-wide). -->
+    <rule ref="Generic.Files.ByteOrderMark"/>
+
     <!-- Include the WordPress-Core standard -->
     <rule ref="WordPress-Core">
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent" />

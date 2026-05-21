@@ -5,7 +5,7 @@ Tags: admin, page, page tree, hierarchy, menu
 Requires at least: 4.9
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 2.8.9
+Stable tag: 2.8.10
 License: GNU General Public License v3 or later
 
 Get a tree view of all your pages directly in the admin menu. Search, add, edit, view, re-order – all is just one click away!
@@ -43,10 +43,12 @@ Now the tree with the pages will be visible in the admin menu to the left, in th
 
 == Changelog ==
 
+= 2.8.10 =
+* FIX: Removed UTF-8 byte order mark from plugin bootstrap that caused "headers already sent" errors and broke REST/AJAX responses
+
 = 2.8.9 =
 * UPDATE: Tested up to WordPress 7.0
 * CLEANUP: Removed unused code
-
 
 = 2.8.8 =
 * UPDATE: Updated WordPress compatibility

@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 /**
  * Plugin Name: Admin Menu Tree Page View
  * Plugin URI: https://getbutterfly.com/wordpress-plugins/admin-menu-tree-page-view/
  * Description: Get a tree view of all your pages directly in the admin menu. Search, edit, view and add pages - all with just one click away!
- * Version: 2.8.9
+ * Version: 2.8.10
  * Author: Ciprian Popescu
  * Author URI: https://getbutterfly.com/
  * License: GNU General Public License v3 or later
@@ -11,7 +11,7 @@
  *
  *
  * Copyright 2020-2025 Ciprian Popescu (email: getbutterfly@gmail.com)
- * Copyright 2010-2020 PÃ¤r ThernstrÃ¶m (email: par.thernstrom@gmail.com)
+ * Copyright 2010-2020 Pär Thernström (email: par.thernstrom@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ if ( ! is_admin() ) {
     return;
 }
 
-define( 'AMTPV_VERSION', '2.8.9' );
+define( 'AMTPV_VERSION', '2.8.10' );
 
 require 'includes/settings.php';
 
